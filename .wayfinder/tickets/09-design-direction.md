@@ -2,7 +2,7 @@
 title: Pick minimal design direction
 type: prototype
 status: open
-assignee:
+assignee: rupali
 blocked-by: [08-site-structure-and-content-model]
 ---
 
