@@ -2,7 +2,7 @@
 title: Set performance budget and how it is verified
 type: grilling
 status: open
-assignee:
+assignee: rupali
 blocked-by: [05-choose-generator-and-host, 09-design-direction]
 ---
 
