@@ -175,7 +175,7 @@ Chosen direction: **variant D, sidebar plus index rows**. Reference prototype (t
 ## 8. Resume and PDF
 
 - `/resume` renders `resume.yaml` with the same layout as the rest of the site, plus a print stylesheet (`@media print`: hide the sidebar and toggle, single column, black on white, sensible page breaks).
-- `public/resume.pdf` is **exported by hand** (owner's decision, no script and no browser dependency): open `/resume` in Chrome, Print, destination Save as PDF, margins default, background graphics off, then save over `public/resume.pdf` and commit. Repeat after every `resume.yaml` change, or the PDF drifts out of date. Until the first export, the "Download PDF" link returns 404.
+- `public/resume.pdf` is **exported by hand** (owner's decision, no script and no browser dependency): open `/resume` in Chrome, Print, destination Save as PDF, margins default, background graphics off, then save over `public/resume.pdf` and commit. Repeat after every `resume.yaml` change, or the PDF drifts out of date. A placeholder PDF is committed until the first real export.
 - The PDF filename stays `resume.pdf` so the URL is stable. Add a note in the README about re-exporting it.
 
 ## 9. Blog and publishing workflow
