@@ -2,7 +2,7 @@
 title: Decide share images, favicon and metadata assets
 type: grilling
 status: open
-assignee:
+assignee: rupali
 blocked-by: [08-site-structure-and-content-model, 09-design-direction]
 ---
 
