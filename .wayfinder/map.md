@@ -13,11 +13,11 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 - Audience (equal first priority): recruiters, hiring managers, potential clients. Blog readers second.
 - Key goal: searching the owner's name, or asking an AI "who is <name>?", surfaces the site and cites it accurately (SEO + AEO).
 - Hard requirements: loads in under 1 second; easy to change; easy to deploy; as simple as possible.
-- Default stance: static site, no server to maintain, content as Markdown in git. A backend needs a justification. Stack/host are open to recommendation.
+- Stack (decided): fully static Astro site on Cloudflare Workers static assets, source in GitHub, deploy on push to `main`. No backend.
 - Contact: links only (email, LinkedIn, GitHub) plus an optional calendar-booking link. No form.
 - Blog: weekly cadence, tags yes, comments no, RSS only if it helps discovery.
 - Design: minimal, text-light (visitors skim), nothing flashy. Separate pages (e.g. Home/About, Resume, Projects, Blog, Contact) with a downloadable PDF resume.
-- Analytics: privacy-friendly, cookie-free, no consent banner.
+- Analytics: Cloudflare Web Analytics (privacy-friendly, cookie-free); GoatCounter as fallback.
 - Editing: Markdown + git push to deploy; Claude does most edits. No CMS UI.
 - Starting from nothing: no domain, resume or content yet.
 
@@ -29,6 +29,7 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 - [Compare hosting and deploy options](tickets/02-compare-hosting-and-deploy.md): Vercel Hobby bars commercial use; Netlify is credit-limited; Cloudflare and GitHub Pages are viable. Check Pages vs Workers.
 - [Establish current SEO and AEO requirements](tickets/03-seo-and-aeo-requirements.md): AEO is SEO for Google: static HTML, Person JSON-LD, sitemap, permissive robots, good Core Web Vitals. Skip llms.txt.
 - [Compare privacy-friendly analytics](tickets/04-compare-privacy-friendly-analytics.md): Plausible, GoatCounter, Umami, Fathom are cookie-free; GoatCounter free and ~3.5KB.
+- [Choose static site generator and host](tickets/05-choose-generator-and-host.md): Astro, fully static, on Cloudflare Workers static assets; GitHub push-to-deploy; Cloudflare Web Analytics; Cloudflare Registrar (purchase later). About $11/yr total.
 
 ## Not yet specified
 
