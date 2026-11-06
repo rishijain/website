@@ -49,6 +49,7 @@ Placeholders used below: `<Name>` (owner's full name), `<domain>` (`firstnamelas
 │   ├── data/
 │   │   ├── site.ts             # name, title, positioning line, bio, links, sameAs
 │   │   ├── tags.ts             # the controlled tag vocabulary
+│   │   ├── external-posts.ts   # posts written on another platform (link-out)
 │   │   └── resume.yaml         # single source for the resume page and PDF
 │   ├── layouts/Base.astro      # <head>, sidebar, skip link, theme script, footer
 │   ├── components/             # Sidebar, IndexRow, JsonLd, TagChips, ThemeToggle
@@ -69,7 +70,7 @@ Lowercase URLs, no trailing slash (`build.format: 'file'` or `trailingSlash: 'ne
 | `/resume.pdf` | `public/resume.pdf` | Exported by hand from the HTML page (section 8). |
 | `/projects` | `pages/projects.astro` | About 4 entries as index rows. List only, no detail pages. |
 | `/talks` | `pages/talks.astro` | One index row per talk: title, conference, date, video and slides links. |
-| `/blog` | `pages/blog/index.astro` | Tag chips above a year-grouped list of index rows (date, title, tags). |
+| `/blog` | `pages/blog/index.astro` | Tag chips above a year-grouped list of index rows (date, title, tags). Includes link-out rows for posts written on another platform (section 5). |
 | `/blog/<slug>` | `pages/blog/[slug].astro` | A post. |
 | `/blog/tags/<tag>` | `pages/blog/tags/[tag].astro` | Posts for one tag. Generated for the tags that have at least one published post. |
 | `/contact` | `pages/contact.astro` | Email, LinkedIn, GitHub, optional calendar link. No form. |
@@ -105,6 +106,10 @@ Build-time rules (implement as schema validation and a small check in the build)
 - Posts with `draft: true` are excluded from every output: pages, `/blog`, tag pages, RSS, sitemap, "Latest posts". In `astro dev` drafts are shown.
 - The build fails if a published post body contains the string `TODO(`.
 - The build fails if a tag in the enum is spelled differently in front matter (enum validation does this).
+
+### External posts (`src/data/external-posts.ts`)
+
+Posts the owner wrote on another platform (ticket 16). Hand-written entries: `title`, `url` (https), `date` (YYYY-MM-DD), `source` (platform name), optional `tags` from the controlled vocabulary. Rendered as link-out index rows ("Originally published on <source>") merged by date with local posts in `/blog`, the tag pages and Home's "Latest posts". Not pages on this site, so they are excluded from `/rss.xml`, the sitemap and JSON-LD. The build fails on a non-https URL, an invalid date or an unknown tag. No automatic feed fetching in v1.
 
 ### Tags (`src/data/tags.ts`)
 
@@ -186,7 +191,7 @@ Chosen direction: **variant D, sidebar plus index rows**. Reference prototype (t
 - Rules in every mode: the owner approves every post by reading the git diff and pushing it. Claude does not invent first-hand claims (experiences, numbers, client or employer names, quotes); where a draft needs a fact only the owner has, Claude leaves `TODO(rishi)` and the build fails until it is resolved. The owner only publishes posts on topics they can vouch for.
 - Tag additions are deliberate edits to `src/data/tags.ts`: Claude proposes the tag and why; the owner approves in the same diff.
 - Cadence: site copy never promises "weekly". A skipped week is fine; do not backfill. Keep `content/ideas.md` as the backlog: add a line whenever a topic comes up; each week starts from it.
-- RSS at `/rss.xml` via `@astrojs/rss`: published posts, newest first, with title, description, link, `pubDate`, categories from tags.
+- RSS at `/rss.xml` via `@astrojs/rss`: published posts written on this site (not external link-out posts), newest first, with title, description, link, `pubDate`, categories from tags.
 
 ## 10. Crawlers and headers
 

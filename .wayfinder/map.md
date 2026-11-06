@@ -39,6 +39,8 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 - [Define weekly publishing workflow](tickets/11-weekly-publishing-workflow.md): Any mix of Claude-written and owner-written posts; owner approves every post, no invented first-hand claims; publish on push with `draft` flag; tags added by deliberate edit; `content/ideas.md` backlog.
 - [Assemble the build spec](tickets/15-assemble-build-spec.md): Written to `.wayfinder/spec.md`; owner inputs (06, 07) and veto-able defaults listed in it.
 
+- [List blog posts written on another platform](tickets/16-external-blog-posts.md): Link-out rows from a hand-written data file, merged into the blog list; not in RSS, sitemap or JSON-LD.
+
 ## Not yet specified
 
 - Nothing left to decide. Remaining owner inputs: resume, bio, photo ([06](tickets/06-gather-content-and-assets.md)); domain ([07](tickets/07-buy-domain.md)).

@@ -1,0 +1,19 @@
+---
+import IndexRow from './IndexRow.astro';
+import { TAG_NAMES } from '../data/tags';
+import { isoDate, type ListedPost } from '../lib';
+
+interface Props {
+  post: ListedPost;
+}
+const { post } = Astro.props;
+---
+
+<IndexRow
+  label={isoDate(post.date)}
+  datetime={isoDate(post.date)}
+  title={post.title}
+  summary={post.source ? `Originally published on ${post.source}` : undefined}
+  meta={post.tags.map((t) => TAG_NAMES[t]).join(', ')}
+  href={post.href}
+/>

@@ -14,6 +14,7 @@ Build progress lives in `.wayfinder/spec.md` section 15; decisions live in `.way
 - [ ] Links: email, LinkedIn, GitHub, optional calendar booking.
 - [ ] 3-6 projects with a one-line description each (only what is public, no NDA work).
 - [ ] Talks list: title, conference, date, video and slides links.
+- [ ] Your posts from the other platform: give Claude title, URL, date and platform name for each (goes in `src/data/external-posts.ts`; replace the placeholder entry).
 - [ ] Final positioning line; decide whether you want a `<handle>` for `alternateName`.
 - [ ] Export the real resume PDF: open `/resume` in Chrome, Print, Save as PDF, overwrite `public/resume.pdf`, commit (repeat after every `resume.yaml` change).
 

@@ -1,14 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
-import IndexRow from '../../components/IndexRow.astro';
+import PostRow from '../../components/PostRow.astro';
 import TagChips from '../../components/TagChips.astro';
 import { site, pageTitle } from '../../data/site';
-import { TAG_IDS, TAG_NAMES } from '../../data/tags';
-import { getPosts, isoDate, year } from '../../lib';
+import { TAG_IDS } from '../../data/tags';
+import { getListedPosts, year } from '../../lib';
 
-const posts = await getPosts();
-const usedTags = TAG_IDS.filter((t) => posts.some((p) => p.data.tags.includes(t)));
-const years = [...new Set(posts.map((p) => year(p.data.pubDate)))];
+const posts = await getListedPosts();
+const usedTags = TAG_IDS.filter((t) => posts.some((p) => p.tags.includes(t)));
+const years = [...new Set(posts.map((p) => year(p.date)))];
 ---
 
 <Base title={pageTitle('Blog')} description={`Posts by ${site.name} on AI agents, Rails, speaking and building products.`}>
@@ -19,20 +19,10 @@ const years = [...new Set(posts.map((p) => year(p.data.pubDate)))];
       <>
         <h2 class="year-label">{y}</h2>
         <ul class="rows">
-          {posts
-            .filter((p) => year(p.data.pubDate) === y)
-            .map((p) => (
-              <IndexRow
-                label={isoDate(p.data.pubDate)}
-                datetime={isoDate(p.data.pubDate)}
-                title={p.data.title}
-                meta={p.data.tags.map((t) => TAG_NAMES[t]).join(', ')}
-                href={`/blog/${p.id}`}
-              />
-            ))}
+          {posts.filter((p) => year(p.date) === y).map((p) => <PostRow post={p} />)}
         </ul>
       </>
     ))
   }
-  <p class="mut"><a href="/rss.xml">RSS feed</a></p>
+  <p class="mut"><a href="/rss.xml">RSS feed</a> (posts written on this site only)</p>
 </Base>

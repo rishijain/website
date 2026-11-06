@@ -4,10 +4,10 @@ import Base from '../layouts/Base.astro';
 import IndexRow from '../components/IndexRow.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { site } from '../data/site';
-import { TAG_NAMES } from '../data/tags';
-import { getPosts, isoDate, year, personNode, siteCreated, siteUpdated } from '../lib';
+import PostRow from '../components/PostRow.astro';
+import { getListedPosts, year, personNode, siteCreated, siteUpdated } from '../lib';
 
-const posts = (await getPosts()).slice(0, 3);
+const posts = (await getListedPosts()).slice(0, 3);
 const projects = (await getCollection('projects')).filter((p) => p.data.featured);
 const talks = (await getCollection('talks')).filter((t) => t.data.featured);
 // Selected work: featured projects and talks, newest first, capped at 3.
@@ -56,17 +56,7 @@ const graph = [
 
   <h2 class="section-label">Latest posts</h2>
   <ul class="rows">
-    {
-      posts.map((p) => (
-        <IndexRow
-          label={isoDate(p.data.pubDate)}
-          datetime={isoDate(p.data.pubDate)}
-          title={p.data.title}
-          meta={p.data.tags.map((t) => TAG_NAMES[t]).join(', ')}
-          href={`/blog/${p.id}`}
-        />
-      ))
-    }
+    {posts.map((p) => <PostRow post={p} />)}
   </ul>
   <p><a href="/blog">All posts</a></p>
 </Base>

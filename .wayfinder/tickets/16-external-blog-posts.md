@@ -1,7 +1,7 @@
 ---
 title: List blog posts written on another platform
 type: decision
-status: open
+status: closed
 assignee:
 blocked-by: []
 ---
@@ -24,4 +24,4 @@ Raised after the spec was assembled (spec sections 4, 5, 9 and `/blog` assume on
 
 ## Resolution
 
-(open)
+Link out, with a hand-written list. Each external post is an index row in the blog list that opens the original post; no copies, so no duplicate-content risk. Entries live in `src/data/external-posts.ts` (title, https URL, date, source platform, optional tags from the controlled vocabulary), validated at build time. They are merged by date into `/blog`, the tag pages and Home's "Latest posts", with an "Originally published on <platform>" line. They are excluded from `/rss.xml`, the sitemap and JSON-LD, since they are not pages on this domain. No feed fetching in v1; it can be added later by generating the same entries from a feed.
