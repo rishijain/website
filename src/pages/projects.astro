@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import IndexRow from '../components/IndexRow.astro';
+import { site, pageTitle } from '../data/site';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title={pageTitle('Projects')} description={`Selected projects by ${site.name}.`}>
+  <h1>Projects</h1>
+  <ul class="rows">
+    {
+      projects.map((p) => (
+        <IndexRow label={String(p.data.year)} title={p.data.title} summary={p.data.summary} meta={p.data.role}>
+          {p.data.links.length > 0 && (
+            <span class="row-summary">
+              {p.data.links.map((l, i) => (
+                <>
+                  {i > 0 && ' · '}
+                  <a href={l.url}>{l.label}</a>
+                </>
+              ))}
+            </span>
+          )}
+        </IndexRow>
+      ))
+    }
+  </ul>
+</Base>

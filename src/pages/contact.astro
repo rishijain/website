@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import IndexRow from '../components/IndexRow.astro';
+import { site, pageTitle } from '../data/site';
+---
+
+<Base title={pageTitle('Contact')} description={`Contact ${site.name}: email, LinkedIn and GitHub.`}>
+  <h1>Contact</h1>
+  <p>The best way to reach me is email.</p>
+  <ul class="rows">
+    <IndexRow label="Email" title={site.email} href={`mailto:${site.email}`} />
+    <IndexRow label="LinkedIn" title={site.linkedin.replace('https://www.', '')} href={site.linkedin} />
+    <IndexRow label="GitHub" title={site.github.replace('https://', '')} href={site.github} />
+    {site.calendarUrl && <IndexRow label="Calendar" title="Book a call" href={site.calendarUrl} />}
+  </ul>
+</Base>

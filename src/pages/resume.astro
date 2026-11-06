@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, pageTitle } from '../data/site';
+import { resume } from '../data/resume';
+---
+
+<Base title={pageTitle('Resume')} description={`Resume of ${site.name}, ${site.jobTitle}: experience, skills and education.`}>
+  <h1>Resume</h1>
+  <p class="no-print"><a href="/resume.pdf">Download PDF</a></p>
+  <p>{resume.summary}</p>
+
+  <h2 class="section-label">Experience</h2>
+  {
+    resume.experience.map((job) => (
+      <section class="avoid-break">
+        <h3>{job.title}, {job.employer}</h3>
+        <p class="mono mut">{job.dates}</p>
+        <ul>{job.bullets.map((b) => <li>{b}</li>)}</ul>
+      </section>
+    ))
+  }
+
+  <h2 class="section-label">Skills</h2>
+  <p>{resume.skills.join(', ')}</p>
+
+  <h2 class="section-label">Education</h2>
+  {
+    resume.education.map((e) => (
+      <p class="avoid-break">
+        <b>{e.degree}</b>, {e.school} <span class="mono mut">{e.dates}</span>
+      </p>
+    ))
+  }
+
+  {
+    resume.links && (
+      <p>
+        {resume.links.map((l, i) => (
+          <>
+            {i > 0 && ' · '}
+            <a href={l.url}>{l.label}</a>
+          </>
+        ))}
+      </p>
+    )
+  }
+</Base>

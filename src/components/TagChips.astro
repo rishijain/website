@@ -1,0 +1,20 @@
+---
+import { TAG_NAMES, type Tag } from '../data/tags';
+interface Props {
+  tags: Tag[];
+  current?: Tag;
+}
+const { tags, current } = Astro.props;
+---
+
+<ul class="chips" aria-label="Tags">
+  {
+    tags.map((t) => (
+      <li>
+        <a class="chip" href={`/blog/tags/${t}`} aria-current={t === current ? 'page' : undefined}>
+          {TAG_NAMES[t]}
+        </a>
+      </li>
+    ))
+  }
+</ul>

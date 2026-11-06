@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import IndexRow from '../../components/IndexRow.astro';
+import TagChips from '../../components/TagChips.astro';
+import { site, pageTitle } from '../../data/site';
+import { TAG_IDS, TAG_NAMES } from '../../data/tags';
+import { getPosts, isoDate, year } from '../../lib';
+
+const posts = await getPosts();
+const usedTags = TAG_IDS.filter((t) => posts.some((p) => p.data.tags.includes(t)));
+const years = [...new Set(posts.map((p) => year(p.data.pubDate)))];
+---
+
+<Base title={pageTitle('Blog')} description={`Posts by ${site.name} on AI agents, Rails, speaking and building products.`}>
+  <h1>Blog</h1>
+  <TagChips tags={usedTags} />
+  {
+    years.map((y) => (
+      <>
+        <h2 class="year-label">{y}</h2>
+        <ul class="rows">
+          {posts
+            .filter((p) => year(p.data.pubDate) === y)
+            .map((p) => (
+              <IndexRow
+                label={isoDate(p.data.pubDate)}
+                datetime={isoDate(p.data.pubDate)}
+                title={p.data.title}
+                meta={p.data.tags.map((t) => TAG_NAMES[t]).join(', ')}
+                href={`/blog/${p.id}`}
+              />
+            ))}
+        </ul>
+      </>
+    ))
+  }
+  <p class="mut"><a href="/rss.xml">RSS feed</a></p>
+</Base>

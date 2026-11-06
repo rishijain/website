@@ -1,0 +1,37 @@
+---
+import Base from '../../../layouts/Base.astro';
+import IndexRow from '../../../components/IndexRow.astro';
+import TagChips from '../../../components/TagChips.astro';
+import { site, pageTitle } from '../../../data/site';
+import { TAG_IDS, TAG_NAMES } from '../../../data/tags';
+import { getPosts, isoDate } from '../../../lib';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return TAG_IDS.filter((t) => posts.some((p) => p.data.tags.includes(t))).map((tag) => ({
+    params: { tag },
+    props: { posts: posts.filter((p) => p.data.tags.includes(tag)), used: TAG_IDS.filter((t) => posts.some((p) => p.data.tags.includes(t))) },
+  }));
+}
+const { tag } = Astro.params as { tag: (typeof TAG_IDS)[number] };
+const { posts, used } = Astro.props;
+---
+
+<Base title={pageTitle(`Posts tagged ${TAG_NAMES[tag]}`)} description={`Posts by ${site.name} tagged ${TAG_NAMES[tag]}.`}>
+  <h1>{TAG_NAMES[tag]}</h1>
+  <TagChips tags={used} current={tag} />
+  <ul class="rows">
+    {
+      posts.map((p) => (
+        <IndexRow
+          label={isoDate(p.data.pubDate)}
+          datetime={isoDate(p.data.pubDate)}
+          title={p.data.title}
+          meta={p.data.tags.map((t) => TAG_NAMES[t]).join(', ')}
+          href={`/blog/${p.id}`}
+        />
+      ))
+    }
+  </ul>
+  <p><a href="/blog">All posts</a></p>
+</Base>

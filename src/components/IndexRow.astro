@@ -21,6 +21,7 @@ const Tag = href ? 'a' : 'div';
     <span class="row-main">
       <b>{title}</b>
       {summary && <span class="row-summary">{summary}</span>}
+      <slot />
     </span>
     {meta && <span class="tg">{meta}</span>}
   </Tag>

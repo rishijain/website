@@ -1,19 +1,72 @@
 ---
-// Minimal Home so steps 1-4 can be seen working. Step 5 replaces this with the
-// full About page (JSON-LD, Selected work, Latest posts).
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import IndexRow from '../components/IndexRow.astro';
+import JsonLd from '../components/JsonLd.astro';
 import { site } from '../data/site';
+import { TAG_NAMES } from '../data/tags';
+import { getPosts, isoDate, year, personNode, siteCreated, siteUpdated } from '../lib';
+
+const posts = (await getPosts()).slice(0, 3);
+const projects = (await getCollection('projects')).filter((p) => p.data.featured);
+const talks = (await getCollection('talks')).filter((t) => t.data.featured);
+// Selected work: featured projects and talks, newest first, capped at 3.
+const selected = [
+  ...projects.map((p) => ({ y: p.data.year, title: p.data.title, summary: p.data.summary, meta: 'Project', href: '/projects' })),
+  ...talks.map((t) => ({ y: year(t.data.date), title: t.data.title, summary: t.data.conference, meta: 'Talk', href: '/talks' })),
+]
+  .sort((a, b) => b.y - a.y)
+  .slice(0, 3);
+
+const base = Astro.site!.origin;
+const graph = [
+  personNode(base),
+  {
+    '@type': 'WebSite',
+    '@id': `${base}/#website`,
+    name: site.name,
+    url: `${base}/`,
+  },
+  {
+    '@type': 'ProfilePage',
+    '@id': `${base}/#profilepage`,
+    url: `${base}/`,
+    name: `${site.name} - ${site.jobTitle}`,
+    isPartOf: { '@id': `${base}/#website` },
+    mainEntity: { '@id': `${base}/#person` },
+    dateCreated: siteCreated,
+    dateModified: siteUpdated,
+  },
+];
 ---
 
 <Base title={`${site.name} - ${site.jobTitle}`} description={site.entitySentence}>
+  <JsonLd slot="head" graph={graph} />
   <h1>{site.name}</h1>
   <p class="lede">{site.entitySentence}</p>
   <p>{site.bio}</p>
-  <h2 class="section-label">Layout check</h2>
+  <p class="mut">
+    I use AI tools to help draft and edit this site. I review everything published here.
+  </p>
+
+  <h2 class="section-label">Selected work</h2>
   <ul class="rows">
-    <IndexRow label="2026-11-02" datetime="2026-11-02" title="A linked row" meta="ai-agents" href="/" />
-    <IndexRow label="2025" title="A row with a summary" summary="One-line summary under the title." meta="Rails" href="/" />
-    <IndexRow label="2025" title="A row without a link" />
+    {selected.map((s) => <IndexRow label={String(s.y)} title={s.title} summary={s.summary} meta={s.meta} href={s.href} />)}
   </ul>
+
+  <h2 class="section-label">Latest posts</h2>
+  <ul class="rows">
+    {
+      posts.map((p) => (
+        <IndexRow
+          label={isoDate(p.data.pubDate)}
+          datetime={isoDate(p.data.pubDate)}
+          title={p.data.title}
+          meta={p.data.tags.map((t) => TAG_NAMES[t]).join(', ')}
+          href={`/blog/${p.id}`}
+        />
+      ))
+    }
+  </ul>
+  <p><a href="/blog">All posts</a></p>
 </Base>

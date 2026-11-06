@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import IndexRow from '../components/IndexRow.astro';
+import { site, pageTitle } from '../data/site';
+import { isoDate } from '../lib';
+
+const talks = (await getCollection('talks')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Base title={pageTitle('Talks')} description={`Conference talks by ${site.name}, with video and slides.`}>
+  <h1>Talks</h1>
+  <ul class="rows">
+    {
+      talks.map((t) => (
+        <IndexRow label={isoDate(t.data.date)} datetime={isoDate(t.data.date)} title={t.data.title} meta={t.data.conference}>
+          {(t.data.videoUrl || t.data.slidesUrl) && (
+            <span class="row-summary">
+              {t.data.videoUrl && <a href={t.data.videoUrl}>Video</a>}
+              {t.data.videoUrl && t.data.slidesUrl && ' · '}
+              {t.data.slidesUrl && <a href={t.data.slidesUrl}>Slides</a>}
+            </span>
+          )}
+        </IndexRow>
+      ))
+    }
+  </ul>
+</Base>
