@@ -7,6 +7,17 @@ export const year = (d: Date) => d.getUTCFullYear();
 /** Published posts, newest first. Drafts show in `astro dev` only (spec section 5). */
 export async function getPosts(): Promise<CollectionEntry<'blog'>[]> {
   const posts = await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft);
+  // Build-time rule (spec section 5, 9): an unresolved TODO( in a published post fails the build.
+  // Drafts are filtered out above in production, so they may keep TODO( markers.
+  if (!import.meta.env.DEV) {
+    const bad = posts.filter((p) => /TODO\(/.test(`${p.body ?? ''}\n${p.data.title}\n${p.data.description}`));
+    if (bad.length) {
+      throw new Error(
+        `Unresolved TODO( in published post(s): ${bad.map((p) => p.id).join(', ')}. ` +
+          'Resolve each TODO(owner) or set draft: true.',
+      );
+    }
+  }
   return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 }
 
