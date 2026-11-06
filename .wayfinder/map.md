@@ -33,11 +33,11 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 - [Define site structure and content model](tickets/08-site-structure-and-content-model.md): `/` is About; Resume (HTML+PDF from one file), Projects (~4), Talks, Blog (5 fixed tags), Contact; RSS yes.
 - [Decide AI crawler policy](tickets/10-ai-crawler-policy.md): Allow all AI bots (training and search); permissive `robots.txt` with sitemap line; verify Cloudflare AI-bot settings are off.
 - [Pick minimal design direction](tickets/09-design-direction.md): Variant D: left sidebar nav plus ruled index rows; system fonts; light/dark following the system with a saved override. Mobile still to verify.
+- [Set performance budget and how it is verified](tickets/12-performance-budget.md): LCP under 1.0s on Lighthouse mobile; under 100 KB per page, 5 KB JS, no web fonts; manual Lighthouse gate before launch and after layout, image or script changes.
 
 ## Not yet specified
 
 - Weekly publishing workflow: [11](tickets/11-weekly-publishing-workflow.md).
-- Performance budget and how "under one second" is verified: [12](tickets/12-performance-budget.md).
 - Share images, favicon, metadata assets: [13](tickets/13-share-images-and-metadata-assets.md).
 - Accessibility and browser-support baseline: [14](tickets/14-accessibility-and-browser-baseline.md).
 - Final assembly of the build spec: [15](tickets/15-assemble-build-spec.md).
