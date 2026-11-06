@@ -2,7 +2,7 @@
 title: Set accessibility and browser-support baseline
 type: grilling
 status: open
-assignee:
+assignee: rupali
 blocked-by: [09-design-direction]
 ---
 
