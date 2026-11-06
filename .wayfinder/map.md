@@ -36,10 +36,10 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 - [Set performance budget and how it is verified](tickets/12-performance-budget.md): LCP under 1.0s on Lighthouse mobile; under 100 KB per page, 5 KB JS, no web fonts; manual Lighthouse gate before launch and after layout, image or script changes.
 - [Decide share images, favicon and metadata assets](tickets/13-share-images-and-metadata-assets.md): One default 1200x630 share image; initials SVG favicon plus apple-touch-icon; Claude makes both; default OG/Twitter metadata on every page.
 - [Set accessibility and browser-support baseline](tickets/14-accessibility-and-browser-baseline.md): WCAG 2.2 AA with design-D checks; browsers from the last 4-5 years via browserslist; readable with JS off; manual axe/keyboard/VoiceOver gate at launch and after layout changes.
+- [Define weekly publishing workflow](tickets/11-weekly-publishing-workflow.md): Any mix of Claude-written and owner-written posts; owner approves every post, no invented first-hand claims; publish on push with `draft` flag; tags added by deliberate edit; `content/ideas.md` backlog.
 
 ## Not yet specified
 
-- Weekly publishing workflow: [11](tickets/11-weekly-publishing-workflow.md).
 - Final assembly of the build spec: [15](tickets/15-assemble-build-spec.md).
 - Owner inputs still owed, not decisions: resume, bio and photo ([06](tickets/06-gather-content-and-assets.md)); domain ([07](tickets/07-buy-domain.md)).
 
