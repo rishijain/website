@@ -2,7 +2,7 @@
 title: Decide AI crawler policy
 type: grilling
 status: open
-assignee:
+assignee: rupali
 blocked-by: []
 ---
 
