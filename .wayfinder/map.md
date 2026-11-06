@@ -34,11 +34,11 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 - [Decide AI crawler policy](tickets/10-ai-crawler-policy.md): Allow all AI bots (training and search); permissive `robots.txt` with sitemap line; verify Cloudflare AI-bot settings are off.
 - [Pick minimal design direction](tickets/09-design-direction.md): Variant D: left sidebar nav plus ruled index rows; system fonts; light/dark following the system with a saved override. Mobile still to verify.
 - [Set performance budget and how it is verified](tickets/12-performance-budget.md): LCP under 1.0s on Lighthouse mobile; under 100 KB per page, 5 KB JS, no web fonts; manual Lighthouse gate before launch and after layout, image or script changes.
+- [Decide share images, favicon and metadata assets](tickets/13-share-images-and-metadata-assets.md): One default 1200x630 share image; initials SVG favicon plus apple-touch-icon; Claude makes both; default OG/Twitter metadata on every page.
 
 ## Not yet specified
 
 - Weekly publishing workflow: [11](tickets/11-weekly-publishing-workflow.md).
-- Share images, favicon, metadata assets: [13](tickets/13-share-images-and-metadata-assets.md).
 - Accessibility and browser-support baseline: [14](tickets/14-accessibility-and-browser-baseline.md).
 - Final assembly of the build spec: [15](tickets/15-assemble-build-spec.md).
 - Owner inputs still owed, not decisions: resume, bio and photo ([06](tickets/06-gather-content-and-assets.md)); domain ([07](tickets/07-buy-domain.md)).
