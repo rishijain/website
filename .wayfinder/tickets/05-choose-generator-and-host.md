@@ -2,7 +2,7 @@
 title: Choose static site generator and host
 type: grilling
 status: open
-assignee:
+assignee: rupali
 blocked-by: [01-compare-static-site-generators, 02-compare-hosting-and-deploy, 03-seo-and-aeo-requirements]
 ---
 
