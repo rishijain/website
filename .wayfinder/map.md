@@ -36,12 +36,12 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 
 ## Not yet specified
 
-- Weekly publishing workflow (drafting, scheduling, Claude-assisted posting) and tag strategy.
-- Performance budget and how "under one second" is verified.
-- Social/share preview images, favicon, and other metadata assets.
-- Resume PDF generation (single source of truth with the resume page?).
-- Accessibility and browser-support baseline.
-- Final assembly of the build spec.
+- Weekly publishing workflow: [11](tickets/11-weekly-publishing-workflow.md).
+- Performance budget and how "under one second" is verified: [12](tickets/12-performance-budget.md).
+- Share images, favicon, metadata assets: [13](tickets/13-share-images-and-metadata-assets.md).
+- Accessibility and browser-support baseline: [14](tickets/14-accessibility-and-browser-baseline.md).
+- Final assembly of the build spec: [15](tickets/15-assemble-build-spec.md).
+- Owner inputs still owed, not decisions: resume, bio and photo ([06](tickets/06-gather-content-and-assets.md)); domain ([07](tickets/07-buy-domain.md)).
 
 ## Out of scope
 
