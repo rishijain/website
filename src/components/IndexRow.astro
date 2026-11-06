@@ -1,0 +1,27 @@
+---
+// One ruled row: small monospace label/date, bold title, monospace tag column.
+// Renders a link when `href` is given, otherwise a plain row.
+interface Props {
+  href?: string;
+  label?: string;
+  datetime?: string;
+  title: string;
+  meta?: string;
+  summary?: string;
+}
+const { href, label, datetime, title, meta, summary } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<li class="row-item">
+  <Tag class="row" href={href}>
+    <span class="num">
+      {datetime ? <time datetime={datetime}>{label}</time> : label}
+    </span>
+    <span class="row-main">
+      <b>{title}</b>
+      {summary && <span class="row-summary">{summary}</span>}
+    </span>
+    {meta && <span class="tg">{meta}</span>}
+  </Tag>
+</li>

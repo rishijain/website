@@ -1,0 +1,28 @@
+# PLACEHOLDER resume: replace with the owner's real resume (ticket 06).
+# Single source for /resume and /resume.pdf.
+summary: Placeholder summary. One short paragraph describing what I do and what I am looking for.
+experience:
+  - employer: Placeholder Company
+    title: Product engineer
+    dates: 2022 - present
+    bullets:
+      - Placeholder bullet describing a shipped result.
+      - Placeholder bullet describing another shipped result.
+  - employer: Another Placeholder Company
+    title: Software engineer
+    dates: 2017 - 2022
+    bullets:
+      - Placeholder bullet describing a shipped result.
+skills:
+  - Ruby on Rails
+  - AI agents
+  - TypeScript
+education:
+  - school: Placeholder University
+    degree: BSc, Computer Science
+    dates: 2013 - 2017
+links:
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/placeholder
+  - label: GitHub
+    url: https://github.com/placeholder

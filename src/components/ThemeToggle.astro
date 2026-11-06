@@ -1,0 +1,37 @@
+---
+// Three states: system (default), light, dark. Hidden until JS is available,
+// since without JS the site simply follows the system.
+---
+
+<div class="theme" role="group" aria-label="Colour theme">
+  <button type="button" data-theme-set="system" aria-pressed="true">System</button>
+  <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+  <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
+</div>
+
+<script>
+  const root = document.documentElement;
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-theme-set]');
+
+  function current(): string {
+    const t = root.getAttribute('data-theme');
+    return t === 'light' || t === 'dark' ? t : 'system';
+  }
+  function render() {
+    const c = current();
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.themeSet === c)));
+  }
+  buttons.forEach((b) =>
+    b.addEventListener('click', () => {
+      const v = b.dataset.themeSet!;
+      if (v === 'system') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', v);
+      try {
+        if (v === 'system') localStorage.removeItem('theme');
+        else localStorage.setItem('theme', v);
+      } catch {}
+      render();
+    }),
+  );
+  render();
+</script>

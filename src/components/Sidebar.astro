@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import { site, nav } from '../data/site';
+import ThemeToggle from './ThemeToggle.astro';
+
+const path = Astro.url.pathname.replace(/\.html$/, '') || '/';
+const isCurrent = (href: string) => (href === '/' ? path === '/' || path === '/index' : path === href || path.startsWith(href + '/'));
+---
+
+<aside class="side" aria-label="Site">
+  <a class="who" href="/">
+    <Image
+      class="photo"
+      src={site.photo}
+      alt={site.photoAlt}
+      width={64}
+      height={64}
+      densities={[1, 2]}
+      format="webp"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <span class="who-text">
+      <span class="name">{site.name}</span>
+      <span class="role">{site.jobTitle}</span>
+    </span>
+  </a>
+
+  <nav aria-label="Primary">
+    <ul>
+      {
+        nav.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <footer class="side-foot">
+    <ThemeToggle />
+    <ul class="links" aria-label="Contact links">
+      <li><a href={`mailto:${site.email}`}>Email</a></li>
+      <li><a href={site.linkedin} rel="me">LinkedIn</a></li>
+      <li><a href={site.github} rel="me">GitHub</a></li>
+    </ul>
+  </footer>
+</aside>

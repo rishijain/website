@@ -1,0 +1,19 @@
+---
+// Minimal Home so steps 1-4 can be seen working. Step 5 replaces this with the
+// full About page (JSON-LD, Selected work, Latest posts).
+import Base from '../layouts/Base.astro';
+import IndexRow from '../components/IndexRow.astro';
+import { site } from '../data/site';
+---
+
+<Base title={`${site.name} - ${site.jobTitle}`} description={site.entitySentence}>
+  <h1>{site.name}</h1>
+  <p class="lede">{site.entitySentence}</p>
+  <p>{site.bio}</p>
+  <h2 class="section-label">Layout check</h2>
+  <ul class="rows">
+    <IndexRow label="2026-11-02" datetime="2026-11-02" title="A linked row" meta="ai-agents" href="/" />
+    <IndexRow label="2025" title="A row with a summary" summary="One-line summary under the title." meta="Rails" href="/" />
+    <IndexRow label="2025" title="A row without a link" />
+  </ul>
+</Base>
