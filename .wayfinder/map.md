@@ -25,6 +25,11 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 
 <!-- one line per closed ticket -->
 
+- [Compare static site generators](tickets/01-compare-static-site-generators.md): Astro, Hugo, Eleventy, Zola all fit; Next.js export keeps a React runtime. No perf data yet.
+- [Compare hosting and deploy options](tickets/02-compare-hosting-and-deploy.md): Vercel Hobby bars commercial use; Netlify is credit-limited; Cloudflare and GitHub Pages are viable. Check Pages vs Workers.
+- [Establish current SEO and AEO requirements](tickets/03-seo-and-aeo-requirements.md): AEO is SEO for Google: static HTML, Person JSON-LD, sitemap, permissive robots, good Core Web Vitals. Skip llms.txt.
+- [Compare privacy-friendly analytics](tickets/04-compare-privacy-friendly-analytics.md): Plausible, GoatCounter, Umami, Fathom are cookie-free; GoatCounter free and ~3.5KB.
+
 ## Not yet specified
 
 - Weekly publishing workflow (drafting, scheduling, Claude-assisted posting) and tag strategy.
