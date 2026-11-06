@@ -30,6 +30,7 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 - [Establish current SEO and AEO requirements](tickets/03-seo-and-aeo-requirements.md): AEO is SEO for Google: static HTML, Person JSON-LD, sitemap, permissive robots, good Core Web Vitals. Skip llms.txt.
 - [Compare privacy-friendly analytics](tickets/04-compare-privacy-friendly-analytics.md): Plausible, GoatCounter, Umami, Fathom are cookie-free; GoatCounter free and ~3.5KB.
 - [Choose static site generator and host](tickets/05-choose-generator-and-host.md): Astro, fully static, on Cloudflare Workers static assets; GitHub push-to-deploy; Cloudflare Web Analytics; Cloudflare Registrar (purchase later). About $11/yr total.
+- [Define site structure and content model](tickets/08-site-structure-and-content-model.md): `/` is About; Resume (HTML+PDF from one file), Projects (~4), Talks, Blog (5 fixed tags), Contact; RSS yes.
 
 ## Not yet specified
 
