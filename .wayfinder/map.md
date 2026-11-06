@@ -32,6 +32,7 @@ A build-ready spec of locked decisions (stack, host, SEO/AEO approach, content m
 - [Choose static site generator and host](tickets/05-choose-generator-and-host.md): Astro, fully static, on Cloudflare Workers static assets; GitHub push-to-deploy; Cloudflare Web Analytics; Cloudflare Registrar (purchase later). About $11/yr total.
 - [Define site structure and content model](tickets/08-site-structure-and-content-model.md): `/` is About; Resume (HTML+PDF from one file), Projects (~4), Talks, Blog (5 fixed tags), Contact; RSS yes.
 - [Decide AI crawler policy](tickets/10-ai-crawler-policy.md): Allow all AI bots (training and search); permissive `robots.txt` with sitemap line; verify Cloudflare AI-bot settings are off.
+- [Pick minimal design direction](tickets/09-design-direction.md): Variant D: left sidebar nav plus ruled index rows; system fonts; light/dark following the system with a saved override. Mobile still to verify.
 
 ## Not yet specified
 
