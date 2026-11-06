@@ -1,0 +1,13 @@
+{
+  // Static-assets-only Worker: serves the built dist/ directory, no script.
+  // Keys checked against developers.cloudflare.com/workers/static-assets on 2026-11-06.
+  "name": "website",
+  "compatibility_date": "2026-11-06",
+  "assets": {
+    "directory": "./dist",
+    // Serve dist/404.html for unknown paths, with a 404 status.
+    "not_found_handling": "404-page",
+    // /blog serves blog.html; /blog/ and /blog.html redirect to /blog, so one URL form resolves.
+    "html_handling": "drop-trailing-slash"
+  }
+}

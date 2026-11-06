@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "deploy:dry": "wrangler deploy --dry-run"
   },
   "browserslist": [
     "chrome >= 100",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.158.0"
   }
 }
