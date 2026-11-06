@@ -2,7 +2,7 @@
 title: Define weekly publishing workflow
 type: grilling
 status: open
-assignee:
+assignee: rupali
 blocked-by: [08-site-structure-and-content-model]
 ---
 
