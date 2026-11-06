@@ -2,7 +2,7 @@
 title: Define site structure and content model
 type: grilling
 status: open
-assignee:
+assignee: rupali
 blocked-by: [03-seo-and-aeo-requirements]
 ---
 
