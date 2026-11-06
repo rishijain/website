@@ -4,7 +4,7 @@ Things only the owner can do, or that wait on the owner's input. Tick them off a
 Build progress lives in `.wayfinder/spec.md` section 15; decisions live in `.wayfinder/tickets/`.
 
 ## Deploy (build step 9)
-- [ ] Create a GitHub repo (private is fine), add it as `origin`, push `main`.
+- [x] Create a GitHub repo (private is fine), add it as `origin`, push `main`. (Done: github.com/rishijain/website)
 - [ ] Cloudflare: Workers & Pages > Create > Import a repository. Build command `npm run build`, deploy command `npx wrangler deploy`, worker name `website` (must match `wrangler.jsonc`), production branch `main`.
 - [ ] Confirm the first build deploys to `website.<subdomain>.workers.dev`, then send the URL to Claude.
 - [ ] Enable Cloudflare Web Analytics. Check whether Cloudflare says a consent banner is unnecessary (spec section 2) and tell Claude.
