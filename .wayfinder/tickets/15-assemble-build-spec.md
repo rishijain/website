@@ -2,7 +2,7 @@
 title: Assemble the build spec
 type: task
 status: open
-assignee:
+assignee: rupali
 blocked-by: [11-weekly-publishing-workflow, 12-performance-budget, 13-share-images-and-metadata-assets, 14-accessibility-and-browser-baseline, 10-ai-crawler-policy]
 ---
 
