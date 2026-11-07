@@ -9,8 +9,8 @@ import { site, pageTitle } from '../data/site';
   <p>The best way to reach me is email.</p>
   <ul class="rows">
     <IndexRow label="Email" title={site.email} href={`mailto:${site.email}`} />
-    <IndexRow label="LinkedIn" title={site.linkedin.replace('https://www.', '')} href={site.linkedin} />
-    <IndexRow label="GitHub" title={site.github.replace('https://', '')} href={site.github} />
+    <IndexRow label="LinkedIn" title={site.linkedin.replace('https://www.', '')} href={site.linkedin} newTab />
+    <IndexRow label="GitHub" title={site.github.replace('https://', '')} href={site.github} newTab />
     {site.calendarUrl && <IndexRow label="Calendar" title="Book a call" href={site.calendarUrl} />}
   </ul>
 </Base>

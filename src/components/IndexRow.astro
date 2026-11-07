@@ -8,13 +8,15 @@ interface Props {
   title: string;
   meta?: string;
   summary?: string;
+  newTab?: boolean;
 }
-const { href, label, datetime, title, meta, summary } = Astro.props;
+const { href, label, datetime, title, meta, summary, newTab } = Astro.props;
+const tabAttrs = href && newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 const Tag = href ? 'a' : 'div';
 ---
 
 <li class="row-item">
-  <Tag class="row" href={href}>
+  <Tag class="row" href={href} {...tabAttrs}>
     <span class="num">
       {datetime ? <time datetime={datetime}>{label}</time> : label}
     </span>
