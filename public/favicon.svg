@@ -4,5 +4,5 @@
     @media (prefers-color-scheme: dark){.bg{fill:#60a5fa} .fg{fill:#0e1013}}
   </style>
   <rect class="bg" width="64" height="64" rx="14"/>
-  <text class="fg" x="32" y="43" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="30" letter-spacing="-1">FL</text>
+  <text class="fg" x="32" y="43" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="30" letter-spacing="-1">RJ</text>
 </svg>

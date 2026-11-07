@@ -4,10 +4,10 @@
 import sharp from 'sharp';
 import { writeFileSync } from 'node:fs';
 
-const NAME = 'Firstname Lastname';
+const NAME = 'Rishi Jain';
 const TITLE = 'Product engineer';
 const LINE = 'Building production AI agents. Rails conference speaker.';
-const INITIALS = 'FL';
+const INITIALS = 'RJ';
 const FONT = "Helvetica Neue, Helvetica, Arial, sans-serif";
 
 // Palette from src/styles/global.css (light for the share image, accent for the icon).
