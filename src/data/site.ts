@@ -13,11 +13,11 @@ export const site = {
   photo,
   photoAlt: 'Portrait of Firstname Lastname',
   email: 'hello@example.com',
-  linkedin: 'https://www.linkedin.com/in/placeholder',
-  github: 'https://github.com/placeholder',
+  linkedin: 'https://www.linkedin.com/in/rishi-jain-49569812/',
+  github: 'https://github.com/rishijain',
   calendarUrl: undefined as string | undefined,
   // Profile URLs the owner controls; at least LinkedIn and GitHub.
-  sameAs: ['https://www.linkedin.com/in/placeholder', 'https://github.com/placeholder'],
+  sameAs: ['https://www.linkedin.com/in/rishi-jain-49569812/', 'https://github.com/rishijain'],
   // Add alternateName in JSON-LD only once a handle exists.
   handle: undefined as string | undefined,
 };
