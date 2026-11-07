@@ -12,7 +12,7 @@ export const site = {
   bio: 'Placeholder bio. Two or three sentences about what I build, what I have shipped, and where I have spoken go here.',
   photo,
   photoAlt: 'Portrait of Firstname Lastname',
-  email: 'hello@example.com',
+  email: 'jainrishi.37@gmail.com',
   linkedin: 'https://www.linkedin.com/in/rishi-jain-49569812/',
   github: 'https://github.com/rishijain',
   calendarUrl: undefined as string | undefined,
